@@ -1,4 +1,4 @@
 package = dovecot
 
 sources:
-	pectool -g $(package).spec
+	spectool -g $(package).spec
