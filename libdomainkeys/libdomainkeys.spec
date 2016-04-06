@@ -1,7 +1,7 @@
 Summary: DomainKey Implementor's library
 Name: libdomainkeys
 Version: 0.69
-Release: 7%{?dist}
+Release: 8%{?dist}
 License: Yahoo! DomainKeys Public License
 Group: System Environment/Libraries
 URL: http://domainkeys.sourceforge.net/
