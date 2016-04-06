@@ -1,0 +1,23 @@
+--- exim-4.69/src/EDITME.orig	2008-08-13 15:30:05.000000000 +0100
++++ exim-4.69/src/EDITME	2008-08-13 15:30:56.000000000 +0100
+@@ -282,14 +282,16 @@
+ # LOOKUP_IBASE=yes
+ LOOKUP_LDAP=yes
+ LDAP_LIB_TYPE=OPENLDAP2
+-LOOKUP_INCLUDE=-I/usr/include/mysql
+-LOOKUP_LIBS=-lldap -llber -lsqlite3 -L/usr/$(_lib)/mysql -lmysqlclient -lpq
+-LOOKUP_MYSQL=yes
++LOOKUP_LIBS=-lldap -llber -lsqlite3
++LOOKUP_MYSQL_INCLUDE=-I/usr/include/mysql
++LOOKUP_MYSQL_LIBS=-L/usr/${_lib}/mysql -lmysqlclient
++LOOKUP_PGSQL_LIBS=-lpq
++LOOKUP_MYSQL=2
+ LOOKUP_NIS=yes
+ LOOKUP_NISPLUS=yes
+ # LOOKUP_ORACLE=yes
+ LOOKUP_PASSWD=yes
+-LOOKUP_PGSQL=yes
++LOOKUP_PGSQL=2
+ LOOKUP_SQLITE=yes
+ # LOOKUP_WHOSON=yes
+ 

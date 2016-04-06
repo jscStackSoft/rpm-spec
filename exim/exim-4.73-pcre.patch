@@ -1,0 +1,11 @@
+--- exim-4.73/Local/Makefile~	2011-01-15 10:40:32.583210616 +0100
++++ exim-4.73/Local/Makefile	2011-01-15 10:45:10.887109582 +0100
+@@ -187,7 +187,7 @@
+ # options in INCLUDE.  If you want the extra searches only for certain
+ # parts of the build, see more specific xxx_INCLUDE variables below.
+ 
+-# INCLUDE=-I/example/include
++INCLUDE=-I/usr/include/pcre
+ 
+ # You need to specify some routers and transports if you want the Exim that you
+ # are building to be capable of delivering mail. You almost certainly need at

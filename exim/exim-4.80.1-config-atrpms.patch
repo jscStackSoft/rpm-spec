@@ -1,0 +1,77 @@
+--- exim-4.80.1/src/EDITME.moreconfig	2013-05-15 13:18:22.358229123 +0200
++++ exim-4.80.1/src/EDITME	2013-05-15 13:25:12.691105763 +0200
+@@ -331,7 +329,7 @@
+ # with Solaris 7 onwards. Uncomment whichever of these you are using.
+ 
+ # LDAP_LIB_TYPE=OPENLDAP1
+-# LDAP_LIB_TYPE=OPENLDAP2
++LDAP_LIB_TYPE=OPENLDAP2
+ # LDAP_LIB_TYPE=NETSCAPE
+ # LDAP_LIB_TYPE=SOLARIS
+ 
+@@ -367,6 +365,8 @@
+ 
+ # LOOKUP_INCLUDE=-I /usr/local/ldap/include -I /usr/local/mysql/include -I /usr/local/pgsql/include
+ # LOOKUP_LIBS=-L/usr/local/lib -lldap -llber -lmysqlclient -lpq -lgds -lsqlite3
++LOOKUP_INCLUDE=-I/usr/include/mysql
++LOOKUP_LIBS=-lldap -llber -lsqlite3 -L/usr/$(_lib)/mysql -lmysqlclient -lpq
+ 
+ 
+ #------------------------------------------------------------------------------
+@@ -429,18 +429,18 @@
+ # installed on your system (www.libspf2.org). Depending on where it is installed
+ # you may have to edit the CFLAGS and LDFLAGS lines.
+ 
+-# EXPERIMENTAL_SPF=yes
+-# CFLAGS  += -I/usr/local/include
+-# LDFLAGS += -lspf2
++EXPERIMENTAL_SPF=yes
++CFLAGS  += -I/usr/include
++LDFLAGS += -lspf2
+ 
+ # Uncomment the following lines to add SRS (Sender rewriting scheme) support.
+ # You need to have libsrs_alt installed on your system (srs.mirtol.com).
+ # Depending on where it is installed you may have to edit the CFLAGS and
+ # LDFLAGS lines.
+ 
+-# EXPERIMENTAL_SRS=yes
+-# CFLAGS  += -I/usr/local/include
+-# LDFLAGS += -lsrs_alt
++EXPERIMENTAL_SRS=yes
++CFLAGS  += -I/usr/include
++LDFLAGS += -lsrs_alt
+ 
+ # Uncomment the following lines to add Brightmail AntiSpam support. You need
+ # to have the Brightmail client SDK installed. Please check the experimental
+@@ -501,6 +501,12 @@
+ # Note: Enabling this unconditionally overrides DISABLE_DNSSEC
+ # EXPERIMENTAL_DANE=yes
+ 
++# Domainkeys support
++ 
++EXPERIMENTAL_DOMAINKEYS=yes
++CFLAGS  += -I/usr/include
++LDFLAGS += -ldomainkeys
++
+ # Uncomment the following line to add SOCKS support
+ # EXPERIMENTAL_SOCKS=yes
+
+@@ -870,7 +875,7 @@
+ 
+ # You probably need to add -lpam to EXTRALIBS, and in some releases of
+ # GNU/Linux -ldl is also needed.
+-
++EXTRALIBS_EXIM += -lpam -ldl
+ 
+ #------------------------------------------------------------------------------
+ # Support for authentication via Radius is also available. The Exim support,
+@@ -948,7 +953,7 @@
+ # library for TCP wrappers, so you probably need something like this:
+ #
+ USE_TCP_WRAPPERS=yes
+-CFLAGS+=$(RPM_OPT_FLAGS) $(PIE)
++CFLAGS+=$(RPM_OPT_FLAGS) -DSPF -DSRS $(PIE)
+ EXTRALIBS_EXIM=-lwrap -lpam -ldl -export-dynamic -rdynamic
+ #
+ # but of course there may need to be other things in CFLAGS and EXTRALIBS_EXIM
+ # as well.
