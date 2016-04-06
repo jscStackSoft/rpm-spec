@@ -10,7 +10,7 @@ Summary: Dovecot Secure imap server
 Name: dovecot
 Epoch: 1
 Version: 2.2.23
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: MIT
 Group: System Environment/Daemons
 
