@@ -27,7 +27,6 @@ rewriting which is not vulnerable to attacks by spammers.
 %prep
 %setup -q
 
-
 %build
 CFLAGS="%{optflags}" \
 ./configure --prefix=%{_prefix} 
@@ -50,13 +49,8 @@ if [ ! %{buildroot} = "/" ]; then %{__rm} -rf %{buildroot}; fi
 %files
 %defattr(-,root,root)
 %doc ChangeLog INSTALL README NEWS AUTHORS COPYING
-%{_libdir}/libsrs2.so.*
-%{_libdir}/libsrs2.a
-%{_libdir}/libsrs2.la
+/usr/lib/libsrs2.so*
+/usr/lib/libsrs2.a
+/usr/lib/libsrs2.la
 %{_bindir}/srs
 %{_prefix}/include/srs2.h
-
-
-###
-### eof
-###
