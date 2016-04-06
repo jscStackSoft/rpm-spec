@@ -29,6 +29,9 @@ Summary: Libraries and headers for %{name}
 Group: Development/Libraries
 Requires: %{name} = %{epoch}:%{version}-%{release}
 
+%description devel
+This package contains necessary header files for libsrs2 development.
+
 %prep
 %setup -q
 
