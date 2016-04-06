@@ -6,7 +6,7 @@
 Summary: The exim mail transfer agent
 Name: exim
 Version: 4.86.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: GPLv2+
 Url: http://www.exim.org/
 Group: System Environment/Daemons
@@ -78,7 +78,7 @@ BuildRequires: libICE-devel libXpm-devel libXt-devel
 BuildRequires: systemd-units
 %endif
 BuildRequires: libgsasl-devel
-BuildRequires: libspf2-devel, libsrs_alt-devel
+BuildRequires: libspf2-devel, libsrs2-devel
 BuildRequires: libdomainkeys-devel libdomainkeys
 
 Obsoletes: exim-sysvinit
