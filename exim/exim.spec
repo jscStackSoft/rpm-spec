@@ -24,7 +24,7 @@ Requires(postun): systemd
 Requires(post): /sbin/chkconfig /sbin/service
 Requires(preun): /sbin/chkconfig /sbin/service
 %endif
-Source0: ftp://ftp.exim.org/pub/exim/exim4/exim-%{version}.tar.gz
+Source0: ftp://ftp.exim.org/pub/exim/exim4/old/exim-%{version}.tar.gz
 Source2: exim.init
 Source3: exim.sysconfig
 Source4: exim.logrotate
