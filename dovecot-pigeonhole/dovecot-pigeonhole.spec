@@ -6,7 +6,7 @@ Epoch: 2
 License: LGPL
 Group: System Environment/Daemons
 URL: http://pigeonhole.dovecot.org/
-Source0: http://www.rename-it.nl/dovecot/2.2/dovecot-2.2-pigeonhole-%{version}.tar.gz
+Source0: http://pigeonhole.dovecot.org/releases/2.2/dovecot-2.2-pigeonhole-%{version}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 BuildRequires: dovecot-devel >= 1:2.2
 #BuildRequires: autoconf, automake, libtool
