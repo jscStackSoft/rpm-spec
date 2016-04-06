@@ -1,7 +1,7 @@
 Name:      libdomainkeys
 Summary:   DomainKey library
 Version:   0.69
-Release:   0%{?dist}
+Release:   7%{?dist}
 License:   Yahoo! DomainKeys Public License
 Group:	   System Environment/Libraries
 Vendor:    QmailToaster
