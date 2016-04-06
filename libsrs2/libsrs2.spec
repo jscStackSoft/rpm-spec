@@ -8,7 +8,7 @@
 Summary: SRS email address rewriting engine
 Name: libsrs2
 Version: 1.0.18
-Release: 1%{?redhatvers:.%{redhatvers}}
+Release: 2%{?redhatvers:.%{redhatvers}}
 License: GPL
 Group: System Environment/Libraries
 Packager: Shevek <srs@anarres.org>
@@ -23,6 +23,11 @@ client IP address which submits the mail. When a mail is forwarded,
 the sender address must be rewritten to comply with SPF policy. The
 Sender Rewriting Scheme, or SRS, provides a standard for this
 rewriting which is not vulnerable to attacks by spammers.
+
+%package devel
+Summary: Libraries and headers for %{name}
+Group: Development/Libraries
+Requires: %{name} = %{epoch}:%{version}-%{release}
 
 %prep
 %setup -q
@@ -53,4 +58,7 @@ if [ ! %{buildroot} = "/" ]; then %{__rm} -rf %{buildroot}; fi
 /usr/lib/libsrs2.a
 /usr/lib/libsrs2.la
 %{_bindir}/srs
+
+%files devel
+%defattr(-,root,root,-)
 %{_prefix}/include/srs2.h
