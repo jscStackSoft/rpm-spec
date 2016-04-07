@@ -62,6 +62,7 @@ Requires: /etc/pki/tls/certs /etc/pki/tls/private
 %endif
 Requires: /etc/aliases
 Requires: perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
+Requires: hiredis
 %if %{with libdb}
 BuildRequires: libdb-devel
 %else
