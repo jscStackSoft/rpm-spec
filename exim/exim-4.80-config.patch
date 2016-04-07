@@ -69,7 +69,7 @@
  
  
  #------------------------------------------------------------------------------
-@@ -261,19 +261,21 @@ LOOKUP_DBM=yes
+@@ -261,19 +261,22 @@ LOOKUP_DBM=yes
  LOOKUP_LSEARCH=yes
  LOOKUP_DNSDB=yes
  
@@ -98,6 +98,7 @@
 +LOOKUP_PASSWD=yes
 +LOOKUP_PGSQL=yes
 +LOOKUP_REDIS=yes
++LDFLAGS += -lhiredis
 +LOOKUP_SQLITE=yes
  # LOOKUP_WHOSON=yes
  
