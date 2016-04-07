@@ -78,7 +78,7 @@ BuildRequires: libICE-devel libXpm-devel libXt-devel
 BuildRequires: systemd-units
 %endif
 BuildRequires: libgsasl-devel
-BuildRequires: libspf2-devel, libsrs2-devel
+BuildRequires: libspf2-devel, libsrs_alt-devel
 BuildRequires: libdomainkeys-devel libdomainkeys
 
 Obsoletes: exim-sysvinit

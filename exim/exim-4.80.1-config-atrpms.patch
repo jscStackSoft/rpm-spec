@@ -39,7 +39,7 @@
 -# LDFLAGS += -lsrs_alt
 +EXPERIMENTAL_SRS=yes
 +CFLAGS  += -I/usr/include
-+LDFLAGS += -lsrs2
++LDFLAGS += -lsrs_alt
  
  # Uncomment the following lines to add Brightmail AntiSpam support. You need
  # to have the Brightmail client SDK installed. Please check the experimental
