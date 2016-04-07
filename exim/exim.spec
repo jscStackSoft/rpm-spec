@@ -5,7 +5,7 @@
 
 Summary: The exim mail transfer agent
 Name: exim
-Version: 4.86.2
+Version: 4.87
 Release: 2%{?dist}
 License: GPLv2+
 Url: http://www.exim.org/
@@ -24,7 +24,7 @@ Requires(postun): systemd
 Requires(post): /sbin/chkconfig /sbin/service
 Requires(preun): /sbin/chkconfig /sbin/service
 %endif
-Source0: ftp://ftp.exim.org/pub/exim/exim4/old/exim-%{version}.tar.gz
+Source0: ftp://ftp.exim.org/pub/exim/exim4/exim-%{version}.tar.gz
 Source2: exim.init
 Source3: exim.sysconfig
 Source4: exim.logrotate
@@ -80,6 +80,7 @@ BuildRequires: systemd-units
 BuildRequires: libgsasl-devel
 BuildRequires: libspf2-devel, libsrs_alt-devel
 BuildRequires: libdomainkeys-devel libdomainkeys
+BuildRequires: hiredis-devel
 
 Obsoletes: exim-sysvinit
 
@@ -468,6 +469,50 @@ fi
 %{_sysconfdir}/cron.daily/greylist-tidy.sh
 
 %changelog
+* Thu Apr 7 2016 Andrey Lyarskiy <alyarskiy@stacksoft.ru> - 4.87-1
+- Update to 4.87 upstream.
+- Internationalised mail addressing is no longer experimental
+- SOCKS and PROXY-protocol proxy support are no longer experimental
+- Events are no longer experimental
+- REDIS support is no longer experimental
+- The ACL conditions regex and mime_regex now capture substrings
+- New $callout_address expansion variable
+- Transports now take a "max_parallel" option
+- Expansion operators ${ipv6norm:<string>} and ${ipv6denorm:<string>}
+- New "-bP config" command line option
+- New $dkim_key_length expansion variable
+- New $prdr_requested expansion variable
+- New base64d and base64 expansion items
+- New main configuration option "bounce_return_linesize_limit"
+- New $initial_cwd expansion variable
+- The mysql support can now use msql option group names
+- SOCKS proxies now support priority groups and weighted-random
+  selection
+- REDIS lookups can now handle embedded spaces
+- New event types for recipient- and host-defer
+- New keep_environment and add_environment options
+- Avoid trying to use OCSP-stapling on too-old GnuTLS versions
+- Make logging of interfaces more consistent
+- Fix problem with log files being held open
+- Fix a crash post-transport on missing message-IDs
+- Add Exim version string to process info
+- Fix cached DNS lookups to honour TTL
+- Fix transport interface settings on retries
+- Ignore embedded whitespace when decoding base64
+- Fix log_defer_output option of pipe transport
+- Fix usage of differing hosts for different recipients of a message,
+  under hosts_randomize
+- Fix build of Radius support
+- Fix race condition in exicyclog
+- Refuse unexpected arguments to exiqgrep
+- Server-side advertising of TLS support now defaults to all-hosts
+- Require SINGLE_DH_USE as a default, under OpenSSL
+- Fix cutthrough-delivery bug on message bodies with single-dot line
+- Fix spurious cutthrough delivery under the -bhc command line option
+- Fix passthrough of hard-reject under cutthrough
+- Fix use of DKIM private-keys having trailing '=' in the base-64
+- Fix selection ordering of headers to sign for DKIM 
+
 * Wed May 15 2013 Axel Thimm <Axel.Thimm@ATrpms.net> - 4.80.1-49
 - Update to 4.80.1.
 

@@ -41,8 +41,8 @@
 +CFLAGS  += -I/usr/include
 +LDFLAGS += -lsrs_alt
  
- # Uncomment the following lines to add Brightmail AntiSpam support. You need
- # to have the Brightmail client SDK installed. Please check the experimental
+ # Uncomment the following line to add DMARC checking capability, implemented
+ # using libopendmarc libraries.  You must have SPF support enabled also.
 @@ -501,6 +501,12 @@
  # Note: Enabling this unconditionally overrides DISABLE_DNSSEC
  # EXPERIMENTAL_DANE=yes
@@ -53,18 +53,18 @@
 +CFLAGS  += -I/usr/include
 +LDFLAGS += -ldomainkeys
 +
- # Uncomment the following line to add SOCKS support
- # EXPERIMENTAL_SOCKS=yes
-
+ # Uncomment the following to include extra information in fail DSN message (bounces)
+ # EXPERIMENTAL_DSN_INFO=yes
+ 
 @@ -870,7 +875,7 @@
  
  # You probably need to add -lpam to EXTRALIBS, and in some releases of
  # GNU/Linux -ldl is also needed.
 -
 +EXTRALIBS_EXIM += -lpam -ldl
- 
+
  #------------------------------------------------------------------------------
- # Support for authentication via Radius is also available. The Exim support,
+ # Proxying.
 @@ -948,7 +953,7 @@
  # library for TCP wrappers, so you probably need something like this:
  #

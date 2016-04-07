@@ -14,8 +14,8 @@
  # This router matches local user mailboxes. If the router fails, the error
  # message is "Unknown user".
 @@ -717,6 +723,16 @@ begin transports
- remote_smtp:
    driver = smtp
+   message_size_limit = ${if > {$max_received_linelength}{998} {1}{0}}
  
 +# This transport invokes procmail to deliver mail
 +procmail:

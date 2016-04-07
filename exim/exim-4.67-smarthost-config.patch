@@ -1,8 +1,8 @@
 --- exim-4.67/src/configure.default~	2007-06-27 09:28:31.000000000 +0100
 +++ exim-4.67/src/configure.default	2007-06-27 09:57:09.000000000 +0100
 @@ -752,6 +766,15 @@ begin transports
- remote_smtp:
    driver = smtp
+   message_size_limit = ${if > {$max_received_linelength}{998} {1}{0}}
  
 +# This transport is used for delivering messages over SMTP using the
 +# "message submission" port (RFC4409).

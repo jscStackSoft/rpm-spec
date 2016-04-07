@@ -81,8 +81,8 @@
 +  warn    condition  = ${if !def:h_Message-ID: {1}}
 +          set acl_m_greylistreasons = Message lacks Message-Id: header. Consult RFC2822.\n$acl_m_greylistreasons
  
-   # Deny if the message contains a virus. Before enabling this check, you
-   # must install a virus scanner and set the av_scanner option above.
+   # Deny if the message contains an overlong line.  Per the standards
+   # we should never receive one such via SMTP.
 @@ -515,8 +554,30 @@ acl_check_data:
    #         message   = Your message scored $spam_score SpamAssassin point. Report follows:\n\
    #  	    	        $spam_report

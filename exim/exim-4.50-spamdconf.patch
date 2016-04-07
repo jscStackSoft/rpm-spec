@@ -28,7 +28,7 @@ diff -uNr exim-4.69-old/src/configure.default exim-4.69/src/configure.default
  
    require verify        = sender
  
-@@ -470,27 +472,63 @@
+@@ -470,32 +472,68 @@
  
  acl_check_data:
  
@@ -42,6 +42,11 @@ diff -uNr exim-4.69-old/src/configure.default exim-4.69/src/configure.default
 +  #         message    = RFC2822 says that all mail SHOULD have a Message-ID header.\n\
 +  #                      Most messages without it are spam, so your mail has been rejected.
 +
+   # Deny if the message contains an overlong line.  Per the standards
+   # we should never receive one such via SMTP.
+   #
+   deny    condition  = ${if > {$max_received_linelength}{998}}
+ 
    # Deny if the message contains a virus. Before enabling this check, you
    # must install a virus scanner and set the av_scanner option above.
    #

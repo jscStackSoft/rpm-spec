@@ -1,7 +1,7 @@
 --- exim-4.71/src/globals.c.dl	2009-11-16 19:50:37.000000000 +0000
 +++ exim-4.71/src/globals.c	2009-12-24 19:27:17.000000000 +0000
 @@ -170,6 +170,10 @@
- uschar *tls_verify_hosts       = NULL;
+ uschar *tls_advertise_hosts    = NULL;
  #endif
  
 +#ifdef DLOPEN_LOCAL_SCAN
@@ -218,8 +218,8 @@
 --- exim-4.71/src/globals.h.dl	2009-11-16 19:50:37.000000000 +0000
 +++ exim-4.71/src/globals.h	2009-12-24 19:27:17.000000000 +0000
 @@ -130,6 +130,10 @@ extern uschar *tls_verify_certificates;/
- extern uschar *tls_verify_hosts;       /* Mandatory client verification */
  #endif
+ extern uschar *tls_advertise_hosts;    /* host for which TLS is advertised */
  
 +#ifdef DLOPEN_LOCAL_SCAN
 +extern uschar *local_scan_path;        /* Path to local_scan() library */
